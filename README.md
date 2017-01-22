@@ -1,4 +1,4 @@
-![Pomotron](logo/Logo_pomotron.png)
+![Pomotron](logo/Logo_Pomotron.png)
 
 # Projeto Pomotron
 
