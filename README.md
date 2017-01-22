@@ -1,3 +1,5 @@
+![Pomotron](logo/Logo_pomotron.png)
+
 # Projeto Pomotron
 
 ### Tecnologias usadas para desenvolvimento
