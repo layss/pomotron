@@ -2,14 +2,12 @@
 
 ### Tecnologias usadas para desenvolvimento
 
-Aceito|Tecnologia
-------|----------
- - [x] | HTML5
- - [x] | CSS3
- - [x] | TypeScript
- - [x] | Angular JS 1.5
- - [x] | Electron JS
- - [x] | Node JS
+ - [x] HTML5
+ - [x] CSS3
+ - [x] TypeScript
+ - [x] Angular JS 1.5
+ - [x] Electron JS
+ - [x] Node JS
  
 
 O projeto pomotron visa a construção de uma aplicação cujo objetivo é tirar métricas do tempo para estudo ou outras tarefas em geral.
