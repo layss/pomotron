@@ -1,6 +1,6 @@
 ![Pomotron](logo/Logo.png)
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![npm](https://img.shields.io/badge/npm-3.10.10-green.svg)]() [![typescript](https://img.shields.io/badge/typescript-2.1.5-blue.svg)]() [![Angular](https://img.shields.io/badge/angular%20js-1.5.0-red.svg)]() [![html5](https://img.shields.io/badge/html-5-orange.svg)]() [![](https://img.shields.io/badge/css-3-blue.svg)]() [![](https://img.shields.io/badge/electron-1.4.14-brightgreen.svg)]()
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![npm](https://img.shields.io/badge/npm-3.10.10-green.svg)]() [![typescript](https://img.shields.io/badge/typescript-2.1.5-blue.svg)]() [![JQuery](https://img.shields.io/badge/jquery-3.1.1-blue.svg)]() [![html5](https://img.shields.io/badge/html-5-orange.svg)]() [![](https://img.shields.io/badge/css-3-blue.svg)]() [![](https://img.shields.io/badge/electron-1.4.14-brightgreen.svg)]()
 
 # Projeto Pomotron
 
