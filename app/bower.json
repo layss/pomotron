@@ -1,0 +1,31 @@
+{
+  "name": "pomotron",
+  "homepage": "none",
+  "authors": [
+    "Daniel Silva"
+  ],
+  "description": "Aplicação para controle de horas",
+  "main": "",
+  "keywords": [
+    "pomodoro",
+    "estudo",
+    "concurso",
+    "tecnica",
+    "tempo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.6.1",
+    "angular": "^1.6.1",
+    "angular-material": "^1.1.1",
+    "angular-sanitize": "^1.6.1",
+    "angular-messages": "^1.6.1"
+  }
+}
