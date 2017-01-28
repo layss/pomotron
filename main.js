@@ -16,23 +16,23 @@ let win;
 
 function criarJanela() {
   win = new electron.BrowserWindow({
-    width: 700px,
-    height: 500px
+    width: 1050,
+    height: 700
   });
 
-  win.loadURL({
+  win.loadURL(url.format({
     pathname: path.join(__dirname, 'app/index.html'),
     protocol: 'file:'
-  });
+  }));
 
-  win.webContent.devOpenTools();
+  win.webContents.openDevTools();
 
   win.on('closed', function() {
     win = null;
   });
 }
 
-app.on('ready', criarJanela());
+app.on('ready', criarJanela);
 
 app.on('window-all-closed', function() {
   if (process.plataform !== 'darwin') {
