@@ -77,16 +77,14 @@ var breakTime = false;
 
 //start timer
 startButton.addEventListener('click', function () {
-  timer = setInterval(timerFn, 1000);
-  //console.log("button: " + startButton.innerHTML.trim() + " | session: " + sessionTimer + " | break: " + breakTimer);
+  timer = setInterval(timerFn, 1000);  
   startButton.classList.toggle("hidden");
   resetButton.classList.toggle("hidden");
   spinner.classList.toggle("spinning");
-  statusDisplay.innerHTML = "In session!";
+  statusDisplay.innerHTML = "Pomodoro Iniciado!";
   minutes = sessionTimer - 1;
   function timerFn() {
     seconds--;
-    //console.log("time: " +minutes + ":" + seconds + " | percent: " + elapsedPercent);
     progress();
     if (seconds < 10 && minutes < 10) {
       timeDisplay.innerHTML = "0" + minutes + ":0" + seconds;
@@ -103,14 +101,14 @@ startButton.addEventListener('click', function () {
         minutes = breakTimer - 1;
         seconds = 60;
         elapsedPercent = 0;
-        statusDisplay.innerHTML = "Take a break!";
+        statusDisplay.innerHTML = "Pausa para o lanche!";
         console.log("break time");
       } else {
         breakTime = false;
         minutes = sessionTimer - 1;
         seconds = 60;
         elapsedPercent = 0;
-        statusDisplay.innerHTML = "In session!";
+        statusDisplay.innerHTML = "Pomodoro Iniciado!";
         console.log("work time");
       }
     }
@@ -142,7 +140,7 @@ resetButton.addEventListener('click', function () {
   minutes = sessionTimer - 1;
   elapsedPercent = 0;
   timeDisplay.innerHTML = sessionTimer + ":00";
-  statusDisplay.innerHTML = "Reset!";
+  statusDisplay.innerHTML = "Resetar";
   console.log("reset");
   path.data(pie(calcPercent(elapsedPercent))).attr("d", arc);
 });
@@ -150,26 +148,23 @@ resetButton.addEventListener('click', function () {
 //timer settings
 var settingOptions = {
   "add-break": function addBreak() {
-    if (breakTimer < 51) {
-      var _timer = breakTimer++;
-      document.getElementById("set-break-display").innerHTML = _timer + 1;
-    }
+    var _timer = breakTimer++;
+    document.getElementById("set-break-display").innerHTML = _timer + 1;
+
   },
   "minus-break": function minusBreak() {
-    if (breakTimer > 5) {
+    if (breakTimer > 1) {
       var _timer2 = breakTimer--;
       document.getElementById("set-break-display").innerHTML = _timer2 - 1;
     }
   },
   "add-timer": function addTimer() {
-    if (sessionTimer < 99) {
-      var _timer3 = sessionTimer++;
-      document.getElementById("set-timer-display").innerHTML = _timer3 + 1;
-      document.getElementById("timer-display-time").innerHTML = _timer3 + 1 + ":00";
-    }
+    var _timer3 = sessionTimer++;
+    document.getElementById("set-timer-display").innerHTML = _timer3 + 1;
+    document.getElementById("timer-display-time").innerHTML = _timer3 + 1 + ":00";
   },
   "minus-timer": function minusTimer() {
-    if (sessionTimer > 25) {
+    if (sessionTimer > 1) {
       var _timer4 = sessionTimer--;
       document.getElementById("set-timer-display").innerHTML = _timer4 - 1;
       document.getElementById("timer-display-time").innerHTML = _timer4 - 1 + ":00";
