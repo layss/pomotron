@@ -1,21 +1,14 @@
-![Pomotron](logo/Logo.png)
+# Creative Theme for Jekyll
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![npm](https://img.shields.io/badge/npm-3.10.10-green.svg)]() [![typescript](https://img.shields.io/badge/typescript-2.1.5-blue.svg)]() [![JQuery](https://img.shields.io/badge/AngularJS-1.5-red.svg)]() [![html5](https://img.shields.io/badge/html-5-orange.svg)]() [![](https://img.shields.io/badge/css-3-blue.svg)]() [![](https://img.shields.io/badge/electron-1.4.14-brightgreen.svg)]()
+A Jekyll implementation of the [Creative Theme](http://startbootstrap.com/template-overviews/creative/) template by [Start Bootstrap](http://startbootstrap.com).
 
-# Projeto Pomotron
+Creative is a one page Bootstrap theme for creatives, small businesses, and other multipurpose uses.
+The theme includes a number of rich features and plugins that you can use as a great boilerplate for your next Jekyll project! 
 
-### Tecnologias usadas para desenvolvimento
+See it live in action at <https://volny.github.io/creative-theme-jekyll/>
 
- - [x] HTML5
- - [x] CSS3
- - [x] TypeScript
- - [x] Angular JS
- - [x] Electron JS
- - [x] Node JS
+## To use the Creative Theme template in your project
 
+- Start by adding your info in `_config.yml`
+- In `_layouts/front.html` reorder or remove section as you prefer.
 
-O projeto pomotron visa a construção de uma aplicação cujo objetivo é tirar métricas do tempo para estudo ou outras tarefas em geral.
-
-O projeto utiliza a técnica do pomodoro para que o usuário consiga definir um tempo para que sua tarefa ou estudo seja concluída. Ao concluir a tarefa o pomotron irá persistir os dados em um arquivo **.json** os dados de tempo de todas as tarefas ou estudo concluídos.
-
-Esses dados armazenados em um arquivo **.json**, será utilizado para gerar métricas de tempo por tarefa ou ao longo do mês ou ano.

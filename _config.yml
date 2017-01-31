@@ -1,0 +1,12 @@
+# Site settings
+title: "Pomotron"
+email: "silva20102@gmail.com"
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
+
+twitter_username: daniel10_silva
+github_username: silva01
+
+# Build settings
+markdown: kramdown
