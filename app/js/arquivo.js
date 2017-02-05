@@ -1,25 +1,55 @@
-//var fs = require('fs');
+'use struct';
+const fs = require('fs');
 
-var gerarArquivo = function (json) {
-  // var teste = {
-  //   nome: "Daniel",
-  //   idade: 27
-  // }
-  // fs.appendFile('pomotron.json', JSON.stringify(teste), 'utf8', (err) => {
-  //   if (err) {
-  //     throw err;
-  //   }
-  // });
+(function() {
+  var salvar = function (json) {
 
-  // fs.readFile('pomotron.json', 'utf8', (err, data) => {
-  //   console.log(JSON.parse(data));
-  // });
+    if (verificarArquivo()) {
+      if (excluirArquivo()) {
+        fs.appendFile('pomotron.json', JSON.stringify(json), "utf8", (err) => {
+          if (err) {
+            throw err;
+          } else {
+            alert("Salvo com sucesso");
+          }
+        });
+      }
+    } else {
+      fs.appendFile('pomotron.json', JSON.stringify(json), "utf8", (err) => {
+        if (err) {
+          throw err;
+        } else {
+          alert("Salvo com sucesso");
+        }
+      });
+    }
+  }
 
-  // fs.unlink('pomotron.json', function() {
-  //   console.log("verificar se arquivo foi deletado");
-  // });
+  var verificarArquivo = function() {
+    var result = false;
+    fs.stat('pomotron.json', (err, stat) => {
+      if (typeof stat == 'undefined') {
+        result = false;
+      } else {
+        result = true;
+      }
+    });
+    return result;
+  }
 
-  // fs.stat('pomotron.json', (err, stat) => {
-  //   console.log(stat);
-  // });
-};
+  var excluir = function() {
+    fs.unlink('pomotron.json', (err) => {
+      if (!err) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  var ler = function() {
+    fs.readFile('pomotron.json', "utf8", (err, data) => {
+      result = JSON.parse(data);
+    });
+  }
+}());
