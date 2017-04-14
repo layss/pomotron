@@ -152,6 +152,13 @@ resetButton.addEventListener('click', function () {
       dados.segundos = seconds;
       dados.data = new Date();
       gravar(dados);
+  } else {
+      breakTime = false;
+      minutes = sessionTimer - 1;
+      seconds = 60;
+      elapsedPercent = 0;
+      statusDisplay.innerHTML = "Pomodoro Iniciado!";
+      console.log("work time");
   }
 
   seconds = 60;

@@ -39,7 +39,13 @@ const fs = require('fs');
   }
 
   var gravar = function (json) {
-    fs.appendFile('pomotron.json', JSON.stringify(json), "utf8", (err) => {
+    var array = new Array();
+    if (!Array.isArray(json)){
+      array[0] = json;
+    } else {
+      array = json;
+    }
+    fs.appendFile('pomotron.json', JSON.stringify(array), "utf8", (err) => {
         if (err) {
             throw err;
         }
