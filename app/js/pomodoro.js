@@ -74,19 +74,27 @@ var seconds = 60;
 var minutes = undefined;
 var timer = undefined;
 var breakTime = false;
+var dados = {
+  "minutos": 0,
+  "segundos": 0,
+  "data": null
+};
 
 //start timer
 startButton.addEventListener('click', function () {
-  timer = setInterval(timerFn, 1000);
-  //console.log("button: " + startButton.innerHTML.trim() + " | session: " + sessionTimer + " | break: " + breakTimer);
+  timer = setInterval(timerFn, 1000);  
   startButton.classList.toggle("hidden");
   resetButton.classList.toggle("hidden");
   spinner.classList.toggle("spinning");
-  statusDisplay.innerHTML = "In session!";
+  statusDisplay.innerHTML = "Pomodoro Iniciado!";
+
+  dados.minutos = sessionTimer;
+  dados.segundos = 0;
+  dados.data = new Date();
+
   minutes = sessionTimer - 1;
   function timerFn() {
     seconds--;
-    //console.log("time: " +minutes + ":" + seconds + " | percent: " + elapsedPercent);
     progress();
     if (seconds < 10 && minutes < 10) {
       timeDisplay.innerHTML = "0" + minutes + ":0" + seconds;
@@ -100,17 +108,17 @@ startButton.addEventListener('click', function () {
     if (seconds === 0 && minutes === 0) {
       if (breakTime === false) {
         breakTime = true;
+        gravar(dados);
         minutes = breakTimer - 1;
         seconds = 60;
         elapsedPercent = 0;
-        statusDisplay.innerHTML = "Take a break!";
-        console.log("break time");
+        statusDisplay.innerHTML = "Pausa";
       } else {
         breakTime = false;
         minutes = sessionTimer - 1;
         seconds = 60;
         elapsedPercent = 0;
-        statusDisplay.innerHTML = "In session!";
+        statusDisplay.innerHTML = "Pomodoro Iniciado!";
         console.log("work time");
       }
     }
@@ -138,38 +146,42 @@ resetButton.addEventListener('click', function () {
   resetButton.classList.toggle("hidden");
   spinner.classList.toggle("spinning");
   clearInterval(timer);
+
+  if (breakTime === false) {
+      dados.minutos = sessionTimer;
+      dados.segundos = seconds;
+      dados.data = new Date();
+      gravar(dados);
+  }
+
   seconds = 60;
   minutes = sessionTimer - 1;
   elapsedPercent = 0;
   timeDisplay.innerHTML = sessionTimer + ":00";
-  statusDisplay.innerHTML = "Reset!";
-  console.log("reset");
+  statusDisplay.innerHTML = "Resetar";
   path.data(pie(calcPercent(elapsedPercent))).attr("d", arc);
 });
 
 //timer settings
 var settingOptions = {
   "add-break": function addBreak() {
-    if (breakTimer < 51) {
-      var _timer = breakTimer++;
-      document.getElementById("set-break-display").innerHTML = _timer + 1;
-    }
+    var _timer = breakTimer++;
+    document.getElementById("set-break-display").innerHTML = _timer + 1;
+
   },
   "minus-break": function minusBreak() {
-    if (breakTimer > 5) {
+    if (breakTimer > 1) {
       var _timer2 = breakTimer--;
       document.getElementById("set-break-display").innerHTML = _timer2 - 1;
     }
   },
   "add-timer": function addTimer() {
-    if (sessionTimer < 99) {
-      var _timer3 = sessionTimer++;
-      document.getElementById("set-timer-display").innerHTML = _timer3 + 1;
-      document.getElementById("timer-display-time").innerHTML = _timer3 + 1 + ":00";
-    }
+    var _timer3 = sessionTimer++;
+    document.getElementById("set-timer-display").innerHTML = _timer3 + 1;
+    document.getElementById("timer-display-time").innerHTML = _timer3 + 1 + ":00";
   },
   "minus-timer": function minusTimer() {
-    if (sessionTimer > 25) {
+    if (sessionTimer > 1) {
       var _timer4 = sessionTimer--;
       document.getElementById("set-timer-display").innerHTML = _timer4 - 1;
       document.getElementById("timer-display-time").innerHTML = _timer4 - 1 + ":00";
