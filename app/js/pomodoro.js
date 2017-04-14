@@ -74,6 +74,11 @@ var seconds = 60;
 var minutes = undefined;
 var timer = undefined;
 var breakTime = false;
+var dados = {
+  "minutos": 0,
+  "segundos": 0,
+  "data": null
+};
 
 //start timer
 startButton.addEventListener('click', function () {
@@ -82,6 +87,11 @@ startButton.addEventListener('click', function () {
   resetButton.classList.toggle("hidden");
   spinner.classList.toggle("spinning");
   statusDisplay.innerHTML = "Pomodoro Iniciado!";
+
+  dados.minutos = sessionTimer;
+  dados.segundos = 0;
+  dados.data = new Date();
+
   minutes = sessionTimer - 1;
   function timerFn() {
     seconds--;
@@ -98,11 +108,11 @@ startButton.addEventListener('click', function () {
     if (seconds === 0 && minutes === 0) {
       if (breakTime === false) {
         breakTime = true;
+        gravar(dados);
         minutes = breakTimer - 1;
         seconds = 60;
         elapsedPercent = 0;
-        statusDisplay.innerHTML = "Pausa para o lanche!";
-        console.log("break time");
+        statusDisplay.innerHTML = "Pausa";
       } else {
         breakTime = false;
         minutes = sessionTimer - 1;
@@ -136,12 +146,19 @@ resetButton.addEventListener('click', function () {
   resetButton.classList.toggle("hidden");
   spinner.classList.toggle("spinning");
   clearInterval(timer);
+
+  if (breakTime === false) {
+      dados.minutos = sessionTimer;
+      dados.segundos = seconds;
+      dados.data = new Date();
+      gravar(dados);
+  }
+
   seconds = 60;
   minutes = sessionTimer - 1;
   elapsedPercent = 0;
   timeDisplay.innerHTML = sessionTimer + ":00";
   statusDisplay.innerHTML = "Resetar";
-  console.log("reset");
   path.data(pie(calcPercent(elapsedPercent))).attr("d", arc);
 });
 
