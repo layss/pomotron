@@ -8,7 +8,7 @@ const fs = require('fs');
   }
 
   var ler = function(json) {
-    fs.readFile('pomotron.json', "utf8", (err, data) => {
+    fs.readFile('pomotron.json', "utf8", function(err, data) {
       if(!err){
         var dados = JSON.parse(data);
         dados[dados.length] = json;
@@ -21,7 +21,7 @@ const fs = require('fs');
   }
 
   var verificarArquivo = function(json) {
-    fs.stat('pomotron.json', (err, resultado) => {
+    fs.stat('pomotron.json', function(err, resultado) {
       if (typeof resultado == 'undefined') {
         gravar(json);
       } else {
