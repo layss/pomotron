@@ -31,7 +31,7 @@ const fs = require('fs');
   }
 
   var excluir = function() {
-    fs.unlink('pomotron.json', (err) => {
+    fs.unlink('pomotron.json', function(err) {
       if (err) {
         console.info(err);
       }
@@ -45,7 +45,7 @@ const fs = require('fs');
     } else {
       array = json;
     }
-    fs.appendFile('pomotron.json', JSON.stringify(array), "utf8", (err) => {
+    fs.appendFile('pomotron.json', JSON.stringify(array), "utf8", function(err) {
         if (err) {
             throw err;
         }
