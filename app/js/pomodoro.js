@@ -63,6 +63,7 @@ var path = arcs.append("path").attr("class", function (data, index) {
 /////////timer
 var startButton = document.getElementById("start-timer");
 var resetButton = document.getElementById("reset-timer");
+var metricasButton = document.getElementById("metricas");
 var timeDisplay = document.getElementById("timer-display-time");
 var statusDisplay = document.getElementById("status");
 var spinner = document.getElementById("spineroo");
@@ -216,3 +217,7 @@ var _loop = function _loop(i) {
 for (var i = 0; i < buttonSettings.length; i++) {
   _loop(i);
 }
+
+metricasButton.addEventListener('click', function () {
+    location.href = "graf.html";
+});
