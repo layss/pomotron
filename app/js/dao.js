@@ -6,4 +6,8 @@
   this.gravar = function (json) {
       salvar(json);
   };
+  
+  this.ler = function () {
+      
+  };
 }())
