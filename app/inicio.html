@@ -5,8 +5,23 @@
     <title>Inicial</title>
     <link rel="stylesheet" href="css/reset.min.css">
     <link rel="stylesheet" href="css/pomodoro.css">
+    <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="css/icon.scss">
   </head>
   <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <!-- Left aligned menu below button -->
+      <button id="demo-menu-lower-left"
+              class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+          for="demo-menu-lower-left">
+        <li class="mdl-menu__item"><a href="index.html" class="mdl-button mdl-js-button mdl-button--primary">Home</a></li>
+        <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"><a href="" class="mdl-button mdl-js-button mdl-button--primary">Métricas</a></li>
+      </ul>
+    </div>
     <div class='container'>
     <div class='header'>
       <svg id='gradient' style='width: auto;'>
@@ -76,8 +91,10 @@
     <div class='start' id='start-timer'>COMEÇAR</div>
     <div class='start hidden' id='reset-timer'>RESETAR</div>
 
+
     <!-- Modulos -->
     <script src='bower_components/d3/d3.min.js'></script>
+    <script src="bower_components/material-design-lite/material.min.js"></script>
 
     <!-- JS Geral  -->
     <script src="js/arquivo.js"></script>
