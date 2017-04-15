@@ -149,7 +149,7 @@ resetButton.addEventListener('click', function () {
   clearInterval(timer);
 
   if (breakTime === false) {
-      dados.minutos = sessionTimer;
+      dados.minutos = minutes;
       dados.segundos = seconds;
       dados.data = new Date();
       gravar(dados);
