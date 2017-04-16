@@ -63,6 +63,7 @@ var path = arcs.append("path").attr("class", function (data, index) {
 /////////timer
 var startButton = document.getElementById("start-timer");
 var resetButton = document.getElementById("reset-timer");
+var metricasButton = document.getElementById("metricas");
 var timeDisplay = document.getElementById("timer-display-time");
 var statusDisplay = document.getElementById("status");
 var spinner = document.getElementById("spineroo");
@@ -76,9 +77,10 @@ var timer = undefined;
 var breakTime = false;
 var dados = {
   "minutos": 0,
-  "segundos": 0,
   "data": null
 };
+
+var minutosCrecente = 0;
 
 //start timer
 startButton.addEventListener('click', function () {
@@ -88,8 +90,7 @@ startButton.addEventListener('click', function () {
   spinner.classList.toggle("spinning");
   statusDisplay.innerHTML = "Pomodoro Iniciado!";
 
-  dados.minutos = sessionTimer;
-  dados.segundos = 0;
+  dados.minutos = convertToMinutoMillissegundos(sessionTimer);
   dados.data = new Date();
 
   minutes = sessionTimer - 1;
@@ -113,18 +114,20 @@ startButton.addEventListener('click', function () {
         seconds = 60;
         elapsedPercent = 0;
         statusDisplay.innerHTML = "Pausa";
+        minutosCrecente = 0;
       } else {
         breakTime = false;
         minutes = sessionTimer - 1;
         seconds = 60;
         elapsedPercent = 0;
         statusDisplay.innerHTML = "Pomodoro Iniciado!";
-        console.log("work time");
+        minutosCrecente = 0;
       }
     }
     if (seconds === 0) {
       minutes--;
       seconds = 60;
+      minutosCrecente++;
     }
   };
   function progress() {
@@ -148,10 +151,17 @@ resetButton.addEventListener('click', function () {
   clearInterval(timer);
 
   if (breakTime === false) {
-      dados.minutos = sessionTimer;
-      dados.segundos = seconds;
+      dados.minutos = convertToMinutoMillissegundos(sumMinutesSeconds(minutosCrecente, seconds));
       dados.data = new Date();
       gravar(dados);
+      console.log(minutosCrecente);
+  } else {
+      breakTime = false;
+      minutes = sessionTimer - 1;
+      seconds = 60;
+      elapsedPercent = 0;
+      statusDisplay.innerHTML = "Pomodoro Iniciado!";
+      console.log("work time");
   }
 
   seconds = 60;
@@ -209,3 +219,7 @@ var _loop = function _loop(i) {
 for (var i = 0; i < buttonSettings.length; i++) {
   _loop(i);
 }
+
+metricasButton.addEventListener('click', function () {
+    location.href = "graf.html";
+});

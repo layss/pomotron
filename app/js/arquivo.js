@@ -3,12 +3,17 @@ const fs = require('fs');
 
 (function() {
   this.salvar = function (json) {
-
     verificarArquivo(json);
   }
 
+  this.selectJson = function (callback) {
+      fs.readFile('pomotron.json', "utf8", function (err, data) {
+          return callback(err,data);
+      })
+  }
+
   var ler = function(json) {
-    fs.readFile('pomotron.json', "utf8", (err, data) => {
+    fs.readFile('pomotron.json', "utf8", function(err, data) {
       if(!err){
         var dados = JSON.parse(data);
         dados[dados.length] = json;
@@ -21,7 +26,7 @@ const fs = require('fs');
   }
 
   var verificarArquivo = function(json) {
-    fs.stat('pomotron.json', (err, resultado) => {
+    fs.stat('pomotron.json', function(err, resultado) {
       if (typeof resultado == 'undefined') {
         gravar(json);
       } else {
@@ -31,7 +36,7 @@ const fs = require('fs');
   }
 
   var excluir = function() {
-    fs.unlink('pomotron.json', (err) => {
+    fs.unlink('pomotron.json', function(err) {
       if (err) {
         console.info(err);
       }
@@ -39,7 +44,13 @@ const fs = require('fs');
   }
 
   var gravar = function (json) {
-    fs.appendFile('pomotron.json', JSON.stringify(json), "utf8", (err) => {
+    var array = new Array();
+    if (!Array.isArray(json)){
+      array[0] = json;
+    } else {
+      array = json;
+    }
+    fs.appendFile('pomotron.json', JSON.stringify(array), "utf8", function(err) {
         if (err) {
             throw err;
         }
