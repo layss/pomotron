@@ -7,7 +7,9 @@
       salvar(json);
   };
   
-  this.ler = function () {
-      
+  this.ler = function (callback) {
+      selectJson(function (err,data) {
+         return callback(err, data);
+      });
   };
 }())

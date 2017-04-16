@@ -3,8 +3,13 @@ const fs = require('fs');
 
 (function() {
   this.salvar = function (json) {
-
     verificarArquivo(json);
+  }
+
+  this.selectJson = function (callback) {
+      fs.readFile('pomotron.json', "utf8", function (err, data) {
+          return callback(err,data);
+      })
   }
 
   var ler = function(json) {
