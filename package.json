@@ -4,7 +4,8 @@
   "description": "Aplicativo para controle de tempo",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "echo 'em breve'"
   },
   "repository": {
     "type": "git",
