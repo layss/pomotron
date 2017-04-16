@@ -7,8 +7,7 @@
 ### Tecnologias usadas para desenvolvimento
 
  - [x] HTML5
- - [x] CSS3 
- - [x] Angular JS
+ - [x] CSS3  
  - [x] Electron JS
  - [x] Node JS
 
