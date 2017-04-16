@@ -61,6 +61,7 @@ var path = arcs.append("path").attr("class", function (data, index) {
 }).attr("d", arc);
 
 /////////timer
+var audio = document.getElementById("audio");
 var startButton = document.getElementById("start-timer");
 var resetButton = document.getElementById("reset-timer");
 var metricasButton = document.getElementById("metricas");
@@ -115,6 +116,8 @@ startButton.addEventListener('click', function () {
         elapsedPercent = 0;
         statusDisplay.innerHTML = "Pausa";
         minutosCrecente = 0;
+        audio.play();
+        audio.currentTime = 0;
       } else {
         breakTime = false;
         minutes = sessionTimer - 1;
@@ -122,6 +125,8 @@ startButton.addEventListener('click', function () {
         elapsedPercent = 0;
         statusDisplay.innerHTML = "Pomodoro Iniciado!";
         minutosCrecente = 0;
+        audio.play();
+        audio.currentTime = 0;
       }
     }
     if (seconds === 0) {

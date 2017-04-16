@@ -5,7 +5,12 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "echo 'em breve'"
+    "build": "electron-packager . --all",
+    "osx": "electron-packager . myApp --platform=darwin --arch=x64",
+    "win32": "electron-packager . myApp --platform=win32 --arch=ia32",
+    "win64": "electron-packager . myApp --platform=win32 --arch=x64",
+    "linux32": "electron-packager . myApp --platform=linux --arch=ia32",
+    "linux64": "electron-packager . myApp --platform=linux --arch=x64"
   },
   "repository": {
     "type": "git",

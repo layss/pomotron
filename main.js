@@ -25,8 +25,6 @@ function criarJanela() {
     protocol: 'file:'
   }));
 
-  win.webContents.openDevTools();
-
   win.on('closed', function() {
     win = null;
   });
