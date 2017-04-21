@@ -1,6 +1,5 @@
 body {
-    background: -webkit-linear-gradient(315deg, #B8D087, #00996D);
-    background: linear-gradient(135deg, #B8D087, #00996D);
+    background: linear-gradient(to bottom, #B8D087, #00996D);
 }
 
 .texto {

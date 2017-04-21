@@ -1,7 +1,3 @@
-/**
- * Created by DanielSilva on 15/04/17.
- */
-
 (function(){
     this.graficoMensal = function (data) {
         var mes = new Array(12);
@@ -68,3 +64,4 @@
         return minutos;
     };
 }());
+
