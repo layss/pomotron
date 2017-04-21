@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Inicial</title>
     <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.min.css">
     <link rel="stylesheet" href="css/pomodoro.css">
     <link rel="stylesheet" href="css/icon.scss">
   </head>
@@ -73,7 +74,6 @@
         </div>
       </div>
     </div>
-        <div class='start' id='metricas'>MÉTRICAS</div>
     </div>
     <div class='start' id='start-timer'>COMEÇAR</div>
     <div class='start hidden' id='reset-timer'>RESETAR</div>
@@ -82,8 +82,23 @@
       <source src="mp3/alerta.mp3" type="audio/mpeg">
     </audio>
 
+    <div class="fixed-action-btn toolbar">
+      <a class="btn-floating btn-large red"> <i class="large material-icons">power_settings_new</i> </a>
+      <ul>
+        <li class="waves-effect waves-light"><a href="graf.html"><i class="material-icons">equalizer</i></a></li>
+        <li class="waves-effect waves-light"><a href="index.html"><i class="material-icons">view_day</i></a></li>
+      </ul>
+    </div>
+
+
     <!-- Modulos -->
     <script src='bower_components/d3/d3.min.js'></script>
+    <script>
+
+        window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.min');
+        window.Hammer = require('../node_modules/materialize-css/js/hammer.min');
+    </script>
+    <script src="../node_modules/materialize-css/dist/js/materialize.js"></script>
 
     <!-- JS Geral  -->
     <script src="js/arquivo.js"></script>
