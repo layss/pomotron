@@ -1,6 +1,6 @@
 {
   "name": "pomotron",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Aplicativo para controle de tempo",
   "main": "main.js",
   "scripts": {
