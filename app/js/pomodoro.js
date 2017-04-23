@@ -224,7 +224,3 @@ var _loop = function _loop(i) {
 for (var i = 0; i < buttonSettings.length; i++) {
   _loop(i);
 }
-
-metricasButton.addEventListener('click', function () {
-    location.href = "graf.html";
-});
